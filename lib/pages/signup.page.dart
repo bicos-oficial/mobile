@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 45, left: 45, right: 45),
+        padding: EdgeInsets.only(top: 50, left: 45, right: 45),
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             Container(
-              width: 200,
-              height: 200,
+              width: 225,
+              height: 225,
               alignment: Alignment(0, 1.15),
               decoration: new BoxDecoration(
                 image: new DecorationImage(
@@ -53,7 +53,7 @@ class SignupPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 35,
+              height: 20,
             ),
             TextFormField(
               // autofocus: true,
@@ -94,6 +94,7 @@ class SignupPage extends StatelessWidget {
             TextFormField(
               // autofocus: true,
               keyboardType: TextInputType.number,
+              inputFormatters: [new MaskTextInputFormatter(mask: '###.###.##-##', filter: { "#": RegExp(r'[0-9]') })],
               decoration: InputDecoration(
                 labelText: "Cpf",
                 labelStyle: TextStyle(
@@ -107,10 +108,10 @@ class SignupPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 35,
             ),
             Container(
-              height: 60,
+              height: 75,
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -130,7 +131,7 @@ class SignupPage extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 22,
+                      fontSize: 25,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -145,23 +146,28 @@ class SignupPage extends StatelessWidget {
               height: 60,
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
-                color: Colors.red,
+                color: Color(0xFF3C5A99),
                 borderRadius: BorderRadius.all(
                   Radius.circular(5),
                 ),
               ),
               child: SizedBox.expand(
                 child: FlatButton(
-                  child: Text(
-                    "Cancelar",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                    textAlign: TextAlign.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Login com Facebook",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
                   ),
-                  onPressed: () => Navigator.pop(context, false),
+                  onPressed: () {},
                 ),
               ),
             ),
