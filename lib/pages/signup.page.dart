@@ -157,7 +157,7 @@ class SignupPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Login com Facebook",
+                        "Cadastre-se com Facebook",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

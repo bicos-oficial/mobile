@@ -17,6 +17,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.8.0"
 
 
 flutter:
@@ -25,5 +26,12 @@ flutter:
 
   assets:
 
-  - images/logo.png
-  - images/user.png
+    - images/logo.png
+    - images/user.png
+    - images/bicos_logo_sombra.png
+    - images/bicos_logo.png
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/bicos_logo.psd"
