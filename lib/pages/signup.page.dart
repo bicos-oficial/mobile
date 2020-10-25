@@ -16,7 +16,7 @@ class SignupPage extends StatelessWidget {
               alignment: Alignment(0, 1.15),
               decoration: new BoxDecoration(
                 image: new DecorationImage(
-                  image: AssetImage("images/user.png"),
+                  image: AssetImage("assets/user.png"),
                   fit: BoxFit.fitHeight,
                 ),
               ),

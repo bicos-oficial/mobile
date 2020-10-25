@@ -26,12 +26,12 @@ flutter:
 
   assets:
 
-    - images/logo.png
-    - images/user.png
-    - images/bicos_logo_sombra.png
-    - images/bicos_logo.png
+    - assets/user.png
+    - assets/bicos_logo_sombra.png
+    - assets/bicos_logo.png
+    - assets/reset-password-icon.png
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "images/bicos_logo.psd"
+  image_path: "assets/bicos_logo.psd"

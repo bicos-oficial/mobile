@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: 250,
               height: 250,
-              child: Image.asset("images/bicos_logo.png"),
+              child: Image.asset("assets/bicos_logo.png"),
             ),
             SizedBox(
               height: 15  ,
