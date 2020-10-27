@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class SignupPage extends StatelessWidget {
+class Cpf extends StatelessWidget {
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.black38,
+          onPressed: () => Navigator.pop(context, false),
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.only(top: 50, left: 45, right: 45),
         color: Colors.white,
@@ -167,7 +179,15 @@ class SignupPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if(_formKey.currentState.validate()){
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text("Salvando seu Usuário"),
+                        duration: Duration(seconds: 3),
+                      ));
+                    }
+
+                  },
                 ),
               ),
             ),

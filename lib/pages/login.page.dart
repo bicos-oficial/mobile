@@ -1,7 +1,8 @@
 import 'package:bicos/pages/home.page.dart';
 import 'package:bicos/pages/reset-password.page.dart';
-import 'package:bicos/pages/signup.page.dart';
 import 'package:flutter/material.dart';
+
+import 'singup-pages/signup.page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
