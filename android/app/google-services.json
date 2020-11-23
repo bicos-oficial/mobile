@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "553175844691",
+    "firebase_url": "https://bicos-db7ac.firebaseio.com",
+    "project_id": "bicos-db7ac",
+    "storage_bucket": "bicos-db7ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553175844691:android:732dd10caf9ddbf02fc3a6",
+        "android_client_info": {
+          "package_name": "bicos.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553175844691-bf9c96c0g2neqeleinipklgjlagr3cgr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bicos.com",
+            "certificate_hash": "b066fde7cbedf1ba5abd10c5cc2842bc606e22f0"
+          }
+        },
+        {
+          "client_id": "553175844691-685fb3jgqvsmaer4r63th7cobtfco9if.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF9gCkg1hDiXITBACnbmstWaqFgLSnsQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553175844691-685fb3jgqvsmaer4r63th7cobtfco9if.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

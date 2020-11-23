@@ -186,7 +186,6 @@ class Cpf extends StatelessWidget {
                         duration: Duration(seconds: 3),
                       ));
                     }
-
                   },
                 ),
               ),
