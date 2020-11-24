@@ -3,11 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  runApp(MyApp());
+
   Firestore.instance
       .collection("cool")
       .document("doc")
       .setData({"Texto": "foi aqui"});
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
