@@ -1,7 +1,6 @@
 import 'package:bicos/entity/cargos/Categorias.dart';
 
-class Cargos{
-
+class Cargos {
   // O cargo do freelancer (Ex: "Fotografo, Design, Cabelereiro")
 
   String _id;

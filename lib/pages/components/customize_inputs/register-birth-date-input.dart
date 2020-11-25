@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class RegisterBirthDateInput{
-
+class RegisterBirthDateInput {
   static TextFormField birthDateInput() {
     return TextFormField(
       // autofocus: true,
@@ -41,6 +40,7 @@ class RegisterBirthDateInput{
       },
     );
   }
+
   static DateTime _parseStringToDate(String value) {
     int _dia = int.parse(value.substring(0, 2));
     int _mes = int.parse(value.substring(3, 5));
