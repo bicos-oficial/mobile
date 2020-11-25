@@ -1,5 +1,6 @@
-import 'package:bicos/entities/cargos/Cargos.dart';
-import 'package:bicos/entities/usuarios/Usuario.dart';
+import 'package:bicos/entity/cargos/Cargos.dart';
+
+import 'Usuario.dart';
 
 class UsuarioFreelancer extends Usuario {
 
