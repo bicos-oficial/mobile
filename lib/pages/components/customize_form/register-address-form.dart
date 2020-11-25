@@ -1,16 +1,17 @@
+import 'package:bicos/entity/Endereco.dart';
 import 'package:bicos/pages/components/customize_inputs/register-single-input.dart';
 import 'package:flutter/cupertino.dart';
 
 class RegisterAddressForm {
-  static Widget formularioDeEndereco() {
+  static Widget formularioDeEndereco(Endereco endereco) {
     TextEditingController _ruaController =
-        new TextEditingController(text: 'Rua Benjamin Constant');
+        new TextEditingController(text: endereco.rua);
     TextEditingController _bairroController =
-        new TextEditingController(text: 'Escola Agricola');
+    new TextEditingController(text: endereco.bairro);
     TextEditingController _cidadeController =
-        new TextEditingController(text: 'Blumenau');
+    new TextEditingController(text: endereco.cidade);
     TextEditingController _estadoController =
-        new TextEditingController(text: 'SC');
+    new TextEditingController(text: endereco.estado);
     TextEditingController _numeroController = new TextEditingController();
     TextEditingController _complementoController = new TextEditingController();
 

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterCepInput {
-  static TextFormField cepInput() {
+  static TextFormField cepInput(TextEditingController controller) {
+
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.number,
+      controller: controller,
       inputFormatters: [new MaskTextInputFormatter(mask: '#####-###')],
       textAlign: TextAlign.center,
       decoration: InputDecoration(
