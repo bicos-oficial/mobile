@@ -6,7 +6,7 @@ class Usuario{
   String _nome;
   String _email;
   DateTime _dataNascimento;
-  String _cpf;
+  String _cpfOrCnpj;
   String _numeroTelefone;
   String _rua;
   int _numeroRua;
@@ -20,7 +20,7 @@ class Usuario{
       this._nome,
       this._email,
       this._dataNascimento,
-      this._cpf,
+      this._cpfOrCnpj,
       this._numeroTelefone,
       this._rua,
       this._numeroRua,

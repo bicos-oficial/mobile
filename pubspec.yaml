@@ -13,8 +13,16 @@ dependencies:
 
   cupertino_icons: ^0.1.3
   mask_text_input_formatter: ^1.1.0
-  cpf_cnpj_validator: ^1.0.5
+  validadores: ^0.0.1
+  cloud_firestore: ^0.13.0+1
+  image_picker: ^0.6.2+3
+  google_sign_in: ^4.1.1
+  firebase_storage: ^3.1.1
+  firebase_auth: ^0.15.3
   email_validator: ^1.0.6
+  footer: ^0.0.3
+  http: ^0.12.2
+  date_format: ^1.0.9
 
 dev_dependencies:
   flutter_test:

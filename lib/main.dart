@@ -1,7 +1,15 @@
 import 'package:bicos/pages/login.page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+
+  Firestore.instance
+      .collection("cool")
+      .document("doc")
+      .setData({"Texto": "foi aqui"});
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

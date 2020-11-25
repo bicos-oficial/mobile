@@ -1,4 +1,4 @@
-import 'package:bicos/entities/cargos/Categorias.dart';
+import 'package:bicos/entity/cargos/Categorias.dart';
 
 class Cargos{
 
