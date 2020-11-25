@@ -3,7 +3,6 @@ import 'package:bicos/entity/cargos/Cargos.dart';
 import 'Usuario.dart';
 
 class UsuarioFreelancer extends Usuario {
-
   List<Cargos> _cargos;
 
   UsuarioFreelancer(
@@ -22,5 +21,4 @@ class UsuarioFreelancer extends Usuario {
       this._cargos)
       : super(id, nome, email, dataNascimento, cpf, numeroTelefone, rua,
             numeroRua, bairro, cidade, estado, cep);
-
 }

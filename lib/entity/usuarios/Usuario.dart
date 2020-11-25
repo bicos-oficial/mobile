@@ -1,7 +1,6 @@
 import 'dart:core';
 
-class Usuario{
-
+class Usuario {
   String _id;
   String _nome;
   String _email;

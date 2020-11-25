@@ -3,7 +3,6 @@ import 'package:bicos/pages/reset-password.page.dart';
 import 'package:bicos/pages/singup_pages/signup.page.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class LoginPage extends StatelessWidget {
               child: Image.asset("assets/bicos_logo.png"),
             ),
             SizedBox(
-              height: 15  ,
+              height: 15,
             ),
             TextFormField(
               // autofocus: true,
