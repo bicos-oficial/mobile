@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class RegisterNameInput {
-  static TextFormField nameInput() {
+  static TextFormField nameInput(TextEditingController controller) {
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.name,
+      controller: controller,
       textAlign: TextAlign.center,
       decoration: InputDecoration(
         labelText: 'Insira seu nome Completo',

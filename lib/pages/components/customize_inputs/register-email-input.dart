@@ -2,11 +2,12 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class RegisterEmailInput {
-  static TextFormField emailInput() {
+  static TextFormField emailInput(TextEditingController controller) {
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.emailAddress,
       textAlign: TextAlign.center,
+      controller: controller,
       decoration: InputDecoration(
         labelText: 'Insira seu Email',
         focusedBorder: OutlineInputBorder(

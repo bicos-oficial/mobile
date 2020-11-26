@@ -6,9 +6,9 @@ void main() {
   runApp(MyApp());
 
   Firestore.instance
-      .collection("cool")
-      .document("doc")
-      .setData({"Texto": "foi aqui"});
+      .collection("cool").document("doc").setData(
+      {"Texto": "foi aqui", "Numero": 15256, "bom dale": true},
+      merge: true);
 }
 
 class MyApp extends StatelessWidget {

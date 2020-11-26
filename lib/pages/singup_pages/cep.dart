@@ -1,7 +1,8 @@
-import 'package:bicos/entity/Endereco.dart';
+import 'package:bicos/controller/cep-service-consume.dart';
+import 'package:bicos/models/Endereco.dart';
+import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
 import 'package:bicos/pages/components/customize_inputs/register-cep-input.dart';
-import 'package:bicos/service/cep-service-consume.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,9 @@ class Cep extends StatelessWidget {
   String mask = '';
   TextEditingController _controller = new TextEditingController();
   Endereco endereco = new Endereco();
+  Usuario usuario = new Usuario();
+
+  Cep(this.usuario);
 
   @override
   Widget build(BuildContext context) {
@@ -55,16 +59,17 @@ class Cep extends StatelessWidget {
     if (_formKey.currentState.validate()) {
       final String cep = _controller.text;
       if (cep.isNotEmpty) {
-        getEndereco(cep).then((value) => openWeatherInfo(value, context));
+        getEndereco(cep)
+            .then((value) => openAddressInformation(value, context));
       }
     }
   }
 
-  void openWeatherInfo(Endereco cepInfo, BuildContext context) {
+  void openAddressInformation(Endereco cepInfo, BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddressInformation(cepInfo),
+        builder: (context) => AddressInformation(cepInfo, usuario),
       ),
     );
   }
