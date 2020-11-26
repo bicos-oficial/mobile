@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bicos/entity/Endereco.dart';
+import 'package:bicos/models/Endereco.dart';
 import 'package:http/http.dart' as http;
 
 Future<Endereco> getEndereco(String cep) async {

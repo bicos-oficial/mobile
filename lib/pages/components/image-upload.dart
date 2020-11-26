@@ -1,14 +1,28 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageUploadPerfil {
   static Container imageUploadPerfil() {
+    File imagem;
+
+    void pegarImagem() async {
+      await ImagePicker.pickImage(source: ImageSource.gallery)
+          .then((value) => imagem = value);
+    }
+
     return Container(
       width: 225,
       height: 225,
       alignment: Alignment(0, 1.15),
       decoration: new BoxDecoration(
         image: new DecorationImage(
-          image: AssetImage("assets/user.png"),
+          image: imagem != null
+              ? Image.file(imagem)
+              : AssetImage("assets/user.png"),
           fit: BoxFit.fitHeight,
         ),
       ),
@@ -39,7 +53,9 @@ class ImageUploadPerfil {
               Icons.photo_camera,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              pegarImagem();
+            },
           ),
         ),
       ),

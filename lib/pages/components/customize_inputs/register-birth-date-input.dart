@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterBirthDateInput {
-  static TextFormField birthDateInput() {
+  static TextFormField birthDateInput(TextEditingController controller) {
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.datetime,
       inputFormatters: [new MaskTextInputFormatter(mask: '##/##/####')],
       textAlign: TextAlign.center,
+      controller: controller,
       decoration: InputDecoration(
         hintText: 'dd/mm/aaaa',
         labelText: "Insira sua Data de Aniversário",

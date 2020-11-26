@@ -43,7 +43,7 @@ class NextButton {
     );
   }
 
-  static FloatingActionButton floatingActionButton(
+  static FloatingActionButton floatingActionButtonStateless(
       GlobalKey<FormState> _formkey,
       BuildContext context,
       StatelessWidget nextPage) {

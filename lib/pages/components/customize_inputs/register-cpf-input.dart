@@ -3,12 +3,13 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:validadores/ValidarCPF.dart';
 
 class RegisterCpfInput {
-  static TextFormField cpfInput() {
+  static TextFormField cpfInput(TextEditingController controller) {
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.number,
       inputFormatters: [new MaskTextInputFormatter(mask: '###.###.###-##')],
       textAlign: TextAlign.center,
+      controller: controller,
       decoration: InputDecoration(
         labelText: "Insira seu CPF ou CNPJ",
         focusedBorder: OutlineInputBorder(

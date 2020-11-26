@@ -1,15 +1,18 @@
 import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
-import 'package:bicos/pages/components/customize_inputs/register-email-input.dart';
-import 'package:bicos/pages/singup_pages/cep.dart';
+import 'package:bicos/pages/components/customize_inputs/register-password-input.dart';
+import 'package:bicos/service/UsuarioService.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Email extends StatelessWidget {
+// ignore: must_be_immutable
+class Password extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();
-  TextEditingController controller = new TextEditingController();
+  TextEditingController controllerPassword = new TextEditingController();
+  TextEditingController controllerRepeatPassword = new TextEditingController();
   Usuario usuario = new Usuario();
 
-  Email(this.usuario);
+  Password(this.usuario);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,17 @@ class Email extends StatelessWidget {
             key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[RegisterEmailInput.emailInput(controller)],
+              children: <Widget>[
+                RegisterPasswordInput.passwordInput(controllerPassword),
+                SizedBox(
+                  height: 25,
+                ),
+                RegisterPasswordInput.repeatPasswordInput(
+                    controllerRepeatPassword, controllerPassword),
+                SizedBox(
+                  height: 35,
+                ),
+              ],
             ),
           ),
         ),
@@ -33,7 +46,7 @@ class Email extends StatelessWidget {
             }
           },
           label: Text(
-            "Próximo",
+            "Finalizar Cadastro",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -51,13 +64,12 @@ class Email extends StatelessWidget {
         nome: usuario.nome,
         cpfOrCnpj: usuario.cpfOrCnpj,
         dataNascimento: usuario.dataNascimento,
-        email: controller.text);
+        email: usuario.email,
+        endereco: usuario.endereco,
+        perfilImage: usuario.perfilImage,
+        password: controllerPassword.text);
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Cep(usuarioToPage),
-      ),
-    );
+    UsuarioService service = new UsuarioService();
+    service.cadastrarUsuario(usuarioToPage);
   }
 }
