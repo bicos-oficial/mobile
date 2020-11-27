@@ -1,6 +1,6 @@
 import 'package:bicos/pages/home.page.dart';
 import 'package:bicos/pages/reset-password.page.dart';
-import 'package:bicos/pages/signup.page.dart';
+import 'package:bicos/pages/singup_pages/signup.page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,14 +8,14 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 60, left: 40, right: 40),
+        padding: EdgeInsets.only(top: 45, left: 40, right: 40),
         color: Colors.white,
         child: ListView(
           children: <Widget>[
             SizedBox(
               width: 250,
               height: 250,
-              child: Image.asset("images/logo.png"),
+              child: Image.asset("assets/bicos_logo.png"),
             ),
             SizedBox(
               height: 15,
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             TextFormField(
               // autofocus: true,
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: 30,
             ),
             Container(
               height: 60,
@@ -153,7 +153,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             Container(
               height: 40,
