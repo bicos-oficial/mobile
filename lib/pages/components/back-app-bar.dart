@@ -1,11 +1,12 @@
+import 'package:bicos/patterns/Colors.dart';
+import 'package:bicos/utils/hex-color.dart';
 import 'package:flutter/material.dart';
 
 class BackAppBar {
-  // ignore: missing_return
   static AppBar backAppBarNavigator(BuildContext context) {
     return AppBar(
       title: const Text('Voltar'),
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: HexColor.fromHex(PatternsColors.primaryColor),
       automaticallyImplyLeading: true,
       leading: IconButton(
         icon: Icon(Icons.arrow_back),

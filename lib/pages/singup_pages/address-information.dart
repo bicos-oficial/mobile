@@ -15,29 +15,34 @@ class AddressInformation extends StatelessWidget {
   TextEditingController _ruaController,
       _bairroController,
       _cidadeController,
-      _estadoController,
-      _numeroController,
-      _complementoController;
+      _estadoController;
+
+  TextEditingController _numeroController = new TextEditingController();
+  TextEditingController _complementoController = new TextEditingController();
 
   AddressInformation(this.endereco, this.usuario);
 
   @override
   Widget build(BuildContext context) {
+    var appBar = BackAppBar.backAppBarNavigator(context);
+    var size = MediaQuery.of(context).size;
+    double screenHeight = ((size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top);
+
     _ruaController = new TextEditingController(text: endereco.rua);
     _bairroController = new TextEditingController(text: endereco.bairro);
     _cidadeController = new TextEditingController(text: endereco.cidade);
     _estadoController = new TextEditingController(text: endereco.estado);
-    _numeroController = new TextEditingController();
-    _complementoController = new TextEditingController();
 
     return Scaffold(
-        appBar: BackAppBar.backAppBarNavigator(context),
+        appBar: appBar,
         body: Container(
           padding: EdgeInsets.only(left: 20, right: 20),
           color: Colors.white,
           child: Form(
               key: _formKey,
-              child: RegisterAddressForm.formularioDeEndereco(endereco,
+              child: RegisterAddressForm.formularioDeEndereco(
+                  endereco, screenHeight,
                   ruaController: _ruaController,
                   bairroController: _bairroController,
                   cidadeController: _cidadeController,

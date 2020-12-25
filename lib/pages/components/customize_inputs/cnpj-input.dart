@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:validadores/ValidarCNPJ.dart';
 
-class RegisterNameInput {
-  static TextFormField nameInput(TextEditingController controller) {
+class CnpjInput {
+  static TextFormField cnpjInput() {
     return TextFormField(
       // autofocus: true,
-      keyboardType: TextInputType.name,
-      controller: controller,
+      keyboardType: TextInputType.number,
+      inputFormatters: [
+        new MaskTextInputFormatter(mask: '###.###.###/####-##')
+      ],
       textAlign: TextAlign.center,
       decoration: InputDecoration(
-        labelText: 'Insira seu nome Completo',
+        labelText: "Insira seu CPF ou CNPJ",
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.deepOrange, width: 1),
         ),
@@ -28,7 +32,9 @@ class RegisterNameInput {
       ),
       // ignore: missing_return
       validator: (value) {
-        if (value.isEmpty) return 'Este campo não pode ser vazio';
+        if (value.isEmpty) return 'Por favor insira seu cnpj';
+        if (!CNPJ.isValid(value))
+          return 'O CPF que você inseriu está incorreto';
       },
     );
   }

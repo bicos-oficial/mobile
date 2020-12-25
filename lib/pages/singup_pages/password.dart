@@ -1,6 +1,7 @@
 import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
-import 'package:bicos/pages/components/customize_inputs/register-password-input.dart';
+import 'package:bicos/pages/components/customize_button/next-button.dart';
+import 'package:bicos/pages/components/customize_inputs/password-input.dart';
 import 'package:bicos/service/UsuarioService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +27,11 @@ class Password extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                RegisterPasswordInput.passwordInput(controllerPassword),
+                PasswordInput.passwordInput(controller: controllerPassword),
                 SizedBox(
                   height: 25,
                 ),
-                RegisterPasswordInput.repeatPasswordInput(
+                PasswordInput.repeatPasswordInput(
                     controllerRepeatPassword, controllerPassword),
                 SizedBox(
                   height: 35,
@@ -39,23 +40,12 @@ class Password extends StatelessWidget {
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
+        floatingActionButton: NextButton(
           onPressed: () {
             if (_formkey.currentState.validate()) {
               openCepPage(context);
             }
           },
-          label: Text(
-            "Finalizar Cadastro",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 25,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          icon: Icon(Icons.navigate_next, size: 40),
-          backgroundColor: Colors.deepOrange,
         ));
   }
 

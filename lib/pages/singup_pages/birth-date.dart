@@ -1,6 +1,8 @@
 import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
-import 'package:bicos/pages/components/customize_inputs/register-birth-date-input.dart';
+import 'package:bicos/pages/components/customize_button/next-button.dart';
+import 'package:bicos/pages/components/customize_inputs/birth-date-input.dart';
+import 'package:bicos/utils/parseUtils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +18,23 @@ class BirthDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appBar = BackAppBar.backAppBarNavigator(context);
+    var size = MediaQuery.of(context).size;
+    double screenHeigth = ((size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top);
+
+    void nextPage() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Email(Usuario(
+              nome: usuario.nome,
+              cpfOrCnpj: usuario.cpfOrCnpj,
+              dataNascimento: ParseUtils.parseStringToDate(controller.text))),
+        ),
+      );
+    }
+
     return Scaffold(
         appBar: BackAppBar.backAppBarNavigator(context),
         body: Container(
@@ -26,50 +45,15 @@ class BirthDate extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RegisterBirthDateInput.birthDateInput(controller),
+                  BirthDateInput.birthDateInput(
+                      controller, labelFontSize: screenHeigth * .045),
                 ]),
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            if (_formKey.currentState.validate()) {
-              openEmailPage(context);
-            }
-          },
-          label: Text(
-            "Próximo",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 25,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          icon: Icon(Icons.navigate_next, size: 40),
-          backgroundColor: Colors.deepOrange,
-        ));
-  }
-
-  static DateTime _parseStringToDate(String value) {
-    int _dia = int.parse(value.substring(0, 2));
-    int _mes = int.parse(value.substring(3, 5));
-    int _ano = int.parse(value.substring(6, 10));
-
-    DateTime dataDeNascimeto = new DateTime(_ano, _mes, _dia);
-    return dataDeNascimeto;
-  }
-
-  void openEmailPage(BuildContext context) {
-    Usuario usuarioToPage = new Usuario(
-        nome: usuario.nome,
-        cpfOrCnpj: usuario.cpfOrCnpj,
-        dataNascimento: _parseStringToDate(controller.text));
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Email(usuarioToPage),
-      ),
-    );
+        floatingActionButton: NextButton(onPressed: () {
+          if (_formKey.currentState.validate()) {
+            nextPage();
+          }
+        },));
   }
 }

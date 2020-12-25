@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:validadores/ValidarCPF.dart';
 
-class RegisterCpfInput {
-  static TextFormField cpfInput(TextEditingController controller) {
+class CpfInput {
+  static TextFormField cpfInput(TextEditingController controller, Color color,
+      {double labelFontSize}) {
     return TextFormField(
       // autofocus: true,
       keyboardType: TextInputType.number,
@@ -11,20 +12,22 @@ class RegisterCpfInput {
       textAlign: TextAlign.center,
       controller: controller,
       decoration: InputDecoration(
-        labelText: "Insira seu CPF ou CNPJ",
+        labelText: "CPF ou CNPJ",
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.deepOrange, width: 1),
+          borderSide: BorderSide(color: color, width: 1),
         ),
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.deepOrange),
+          borderSide: BorderSide(color: color),
         ),
         labelStyle: TextStyle(
-          color: Colors.deepOrange,
+          color: color,
           fontWeight: FontWeight.w400,
           fontFamily: "Consolas",
-          fontSize: 25,
+          fontSize: (labelFontSize == null || labelFontSize == 0)
+              ? 25
+              : labelFontSize,
         ),
-        contentPadding: EdgeInsets.all(15),
+        contentPadding: EdgeInsets.all(25),
       ),
       style: TextStyle(
         fontSize: 20,

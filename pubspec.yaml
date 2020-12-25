@@ -22,6 +22,7 @@ dependencies:
   footer: ^0.0.3
   http: ^0.12.2
   date_format: ^1.0.9
+  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -34,13 +35,8 @@ flutter:
   uses-material-design: true
 
   assets:
-
-    - assets/user.png
-    - assets/bicos_logo_sombra.png
     - assets/bicos_logo.png
+    - assets/bicos_logo_sombra.png
+    - assets/bicos_logo_v2.png
     - assets/reset-password-icon.png
-
-flutter_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/bicos_logo.psd"
+    - assets/user.png

@@ -1,4 +1,6 @@
 import 'package:bicos/pages/components/back-app-bar.dart';
+import 'package:bicos/pages/components/customize_button/customize-button.dart';
+import 'package:bicos/utils/hex-color.dart';
 import 'package:flutter/material.dart';
 
 import 'nome.dart';
@@ -6,115 +8,51 @@ import 'nome.dart';
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var appBar = BackAppBar.backAppBarNavigator(context);
+    var size = MediaQuery.of(context).size;
+    double screenHeigth = ((size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top);
+
     return Scaffold(
-      appBar: BackAppBar.backAppBarNavigator(context),
+      appBar: appBar,
       body: Container(
-        padding: EdgeInsets.only(left: 20, right: 20),
+        padding: EdgeInsets.only(
+            left: 25,
+            right: 25),
         color: Colors.white,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 75,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFF58524),
-                    Color(0XFFF92B7F),
-                  ],
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5),
-                ),
-              ),
-              child: SizedBox.expand(
-                child: FlatButton(
-                  child: Text(
-                    "Criar Conta",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 30,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NomeSobrenome(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
             SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 60,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                color: Color(0xFF3C5A99),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5),
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
+              height: (screenHeigth), child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CustomizeButton.primaryButton(
+                    context, NomeSobrenome(), title: 'Crie a sua conta',
+                    height: (screenHeigth * .12),
+                    fontSize: ((screenHeigth * .12) * .35)),
+                SizedBox(
+                  height: (screenHeigth * .081),
                 ),
-              ),
-              child: SizedBox.expand(
-                child: FlatButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Cadastre-se com Facebook",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
-                  onPressed: () {},
+                CustomizeButton.customButton(
+                    context, color: HexColor.fromHex('395185'),
+                    height: (screenHeigth * .1),
+                    title: 'Entre com Facebook',
+                    fontSize: ((screenHeigth * .12) * .25)),
+                SizedBox(
+                  height: (screenHeigth * .081),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 60,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                  color: Colors.white38,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5),
-                  ),
-                  border: Border.all(
-                      color: Colors.red, width: 3, style: BorderStyle.solid)),
-              child: SizedBox.expand(
-                child: FlatButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Cadastre-se com Gmail",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                          fontSize: 20,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ),
+                CustomizeButton.customButton(
+                    context, textColor: HexColor.fromHex('FF0000'),
+                    borderColor: HexColor.fromHex('FF0000'),
+                    height: (screenHeigth * .1),
+                    title: 'Entre com Gmail',
+                    fontSize: ((screenHeigth * .12) * .25)),
+              ],
+            ),),
           ],
         ),
       ),
