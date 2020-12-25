@@ -1,6 +1,7 @@
 import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
-import 'package:bicos/pages/components/customize_inputs/register-name-input.dart';
+import 'package:bicos/pages/components/customize_button/next-button.dart';
+import 'package:bicos/pages/components/customize_inputs/name-input.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,22 @@ class NomeSobrenome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appBar = BackAppBar.backAppBarNavigator(context);
+    var size = MediaQuery.of(context).size;
+    double screenHeigth = ((size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top);
+
+    void nextPage() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Cpf(Usuario(nome: controller.text)),
+        ),
+      );
+    }
+
     return Scaffold(
-        appBar: BackAppBar.backAppBarNavigator(context),
+        appBar: appBar,
         body: Container(
           padding: EdgeInsets.only(left: 20, right: 20),
           color: Colors.white,
@@ -22,38 +37,18 @@ class NomeSobrenome extends StatelessWidget {
             key: _formkey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[RegisterNameInput.nameInput(controller)],
+              children: <Widget>[
+                NameInput.nameInput(controller,
+                    labelFontSize: screenHeigth * .045)
+              ],
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            if (_formkey.currentState.validate()) {
-              openCpfPage(context);
-            }
-          },
-          label: Text(
-            "Próximo",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 25,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          icon: Icon(Icons.navigate_next, size: 40),
-          backgroundColor: Colors.deepOrange,
-        ));
-  }
-
-  void openCpfPage(BuildContext context) {
-    Usuario usuario = new Usuario(nome: controller.text);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Cpf(usuario),
-      ),
+        floatingActionButton: NextButton(onPressed: () {
+          if (_formkey.currentState.validate()) {
+            nextPage();
+          }
+        },)
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:bicos/models/usuarios/Usuario.dart';
 import 'package:bicos/pages/components/back-app-bar.dart';
-import 'package:bicos/pages/components/customize_inputs/register-cpf-input.dart';
+import 'package:bicos/pages/components/customize_button/next-button.dart';
+import 'package:bicos/pages/components/customize_inputs/cpf-input.dart';
+import 'package:bicos/patterns/Colors.dart';
+import 'package:bicos/utils/hex-color.dart';
 import 'package:flutter/material.dart';
 
 import 'birth-date.dart';
@@ -15,6 +18,21 @@ class Cpf extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appBar = BackAppBar.backAppBarNavigator(context);
+    var size = MediaQuery.of(context).size;
+    double screenHeigth = ((size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top);
+
+    void nextPage() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BirthDate(
+              Usuario(nome: usuario.nome, cpfOrCnpj: controller.text)),
+        ),
+      );
+    }
+
     return Scaffold(
         appBar: BackAppBar.backAppBarNavigator(context),
         body: Container(
@@ -25,39 +43,17 @@ class Cpf extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RegisterCpfInput.cpfInput(controller),
+                  CpfInput.cpfInput(
+                      controller, HexColor.fromHex(PatternsColors.primaryColor),
+                      labelFontSize: screenHeigth * .045),
                 ]),
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            if (_formKey.currentState.validate()) {
-              openBirthDatePage(context);
-            }
-          },
-          label: Text(
-            "Próximo",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 25,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          icon: Icon(Icons.navigate_next, size: 40),
-          backgroundColor: Colors.deepOrange,
-        ));
-  }
-
-  void openBirthDatePage(BuildContext context) {
-    Usuario usuarioToPage =
-        new Usuario(nome: usuario.nome, cpfOrCnpj: controller.text);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => BirthDate(usuarioToPage),
-      ),
+        floatingActionButton: NextButton(onPressed: () {
+          if (_formKey.currentState.validate()) {
+            nextPage();
+          }
+        },)
     );
   }
 }

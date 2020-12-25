@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RegisterSingleInput {
+class SingleInput {
   static TextFormField singleInput(
       String labelField, TextEditingController controller, bool readOnly,
       {double labelFontSize, double inputFontSize}) {
     return TextFormField(
-      // autofocus: true,
       keyboardType: TextInputType.name,
       textAlign: TextAlign.center,
       decoration: InputDecoration(
@@ -43,7 +42,6 @@ class RegisterSingleInput {
       String labelField, TextEditingController controller, bool readOnly,
       {double labelFontSize, double inputFontSize}) {
     return TextFormField(
-      // autofocus: true,
       keyboardType: TextInputType.number,
       textAlign: TextAlign.center,
       decoration: InputDecoration(

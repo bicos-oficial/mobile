@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-class RegisterPasswordInput {
-  static TextFormField passwordInput(TextEditingController controller) {
+class PasswordInput {
+  static TextFormField passwordInput(
+      {TextEditingController controller, String labelText}) {
     return TextFormField(
-      // autofocus: true,
       keyboardType: TextInputType.text,
       obscureText: true,
       controller: controller,
       textAlign: TextAlign.center,
       decoration: InputDecoration(
-        labelText: 'Insira sua Senha',
+        labelText: (labelText == null || labelText == '')
+            ? 'Insira sua Senha'
+            : labelText,
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.deepOrange, width: 1),
         ),
@@ -22,7 +24,7 @@ class RegisterPasswordInput {
           fontFamily: "Consolas",
           fontSize: 25,
         ),
-        contentPadding: EdgeInsets.all(15),
+        contentPadding: EdgeInsets.all(25),
       ),
       style: TextStyle(
         fontSize: 20,
@@ -38,7 +40,6 @@ class RegisterPasswordInput {
   static TextFormField repeatPasswordInput(TextEditingController controller,
       TextEditingController controllerOriginalPassword) {
     return TextFormField(
-      // autofocus: true,
       keyboardType: TextInputType.text,
       obscureText: true,
       controller: controller,
@@ -57,7 +58,7 @@ class RegisterPasswordInput {
           fontFamily: "Consolas",
           fontSize: 25,
         ),
-        contentPadding: EdgeInsets.all(15),
+        contentPadding: EdgeInsets.all(25),
       ),
       style: TextStyle(
         fontSize: 20,
